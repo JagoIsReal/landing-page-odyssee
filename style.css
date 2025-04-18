@@ -28,7 +28,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../_media/background-texture.webp');
+    background-image: url('_media/background-texture.webp');
     background-size: cover;
     background-position: center;
     opacity: 0.4;
@@ -266,7 +266,7 @@ h1, h2, h3 {
     left: 0;
     right: 0;
     height: 20px;
-    background: url('../_media/decorative-divider.png') center/contain no-repeat;
+    background: url('_media/decorative-divider.png') center/contain no-repeat;
     filter: brightness(0) invert(0.8);
     opacity: 1;
     z-index: 1;
@@ -357,7 +357,7 @@ h1, h2, h3 {
 }
 
 .testimonials {
-    background: url('../_media/historiques/img-scribe.png');
+    background: url('_media/historiques/img-scribe.png');
     background-size: cover;
     background-position: center;
     padding: 80px 20px 200px 20px;
@@ -427,7 +427,7 @@ h1, h2, h3 {
     left: 0;
     right: 0;
     height: 20px;
-    background: url('../_media/decorative-divider.png') center/contain no-repeat;
+    background: url('_media/decorative-divider.png') center/contain no-repeat;
     filter: brightness(0) invert(0.8);
     opacity: 1;
     z-index: 1;
@@ -669,7 +669,7 @@ h1, h2, h3 {
     left: 0;
     right: 0;
     height: 20px;
-    background: url('../_media/decorative-divider.png') center/contain no-repeat;
+    background: url('_media/decorative-divider.png') center/contain no-repeat;
     filter: brightness(0) invert(0.8);
     opacity: 1;
     z-index: 1;
