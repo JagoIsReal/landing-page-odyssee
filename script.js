@@ -96,3 +96,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Création d'une balise base pour adapter les images au chemin github
+  (function() {
+    const base = document.createElement('base');
+
+    // Exemple de logique : vérifier si le chemin "../index.html" existe
+    fetch("../index.html", { method: 'HEAD' })
+      .then(response => {
+        base.href = response.ok ? "../" : "/landing-page-odyssee/";
+        document.head.appendChild(base);
+      })
+      .catch(() => {
+        // En cas d'erreur (par exemple si le fichier n'existe pas), on met le fallback
+        base.href = "/landing-page-odyssee/";
+        document.head.appendChild(base);
+      });
+  })();

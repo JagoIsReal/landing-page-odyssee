@@ -584,6 +584,22 @@ h1, h2, h3 {
     margin-right: auto;
 }
 
+#metiers-grid {
+    grid-template-columns: repeat(7, 1fr);
+}
+
+@media (max-width: 768px) {
+    #metiers-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    #metiers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .classes-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -597,10 +613,7 @@ h1, h2, h3 {
 }
 
 .class-card {
-    /* background-color: rgba(45, 45, 45, 0.3); */
-    /* border-radius: 10px; */
     overflow: hidden;
-    /* border: 1px solid var(--border-color); */
     transition: all 0.3s ease;
     position: relative;
     aspect-ratio: 1;
@@ -617,8 +630,26 @@ h1, h2, h3 {
 
 .class-card:hover {
     transform: translateY(-5px);
-    /* border-color: var(--accent-color); */
-    /* background-color: rgba(60, 60, 60, 0.5); */
+}
+
+.profession-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 8px;
+    aspect-ratio: 1;
+}
+
+@media (max-width: 768px) {
+    .profession-image {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .profession-image {
+        width: 70%;
+    }
 }
 
 .class-image {
@@ -659,6 +690,10 @@ h1, h2, h3 {
     padding: 30px;
     border-radius: 15px;
     border: 1px solid var(--border-color);
+}
+
+#character-metiers {
+    margin-top: 30px;
 }
 
 .character-column::after {
