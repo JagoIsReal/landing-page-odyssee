@@ -1,0 +1,175 @@
+Let's make a game!
+	name:Patience clicker
+	by:Jean Buisson
+	desc:Un jeu pour vous apprendre à patienter<//>Progressez dans les classes et devenez le maître du donjon.
+	created:13/04/2025
+	updated:13/04/2025
+	version:1
+ 
+Settings
+	background:https://www.odyssee-dnd.fr/_media/background.jpg
+	building cost increase:115%
+	building cost refund:50%
+	spritesheet:icons, 48 by 48, https://www.aht.li/3908704/gold-coin48.png
+	stylesheet:stuff/bigBlue.css
+ 
+Layout
+	use default
+ 
+Buttons
+	*Boutonpiece
+		name:Pièce d'or
+		desc:Cliquez ici pour gagner de l'or !
+		on click:anim icon wobble
+		on click:yield 1 Piece
+		icon:https://www.aht.li/3908722/gold-coin256.png
+		no text
+		class:bigButton hasFlares
+		icon class:shadowed
+		tooltip origin:bottom
+		tooltip class:red
+ 
+Resources
+	*Piece|Pieces
+		name:Pièce d'or|Pièces d'or
+		desc:Ce sont vos pièces d'or, elles vous servent à acheter des mercenaires et votre but est d'en avoir le plus possible.
+		icon:icons[0,0]
+		class:noBackground
+		show earned
+ 
+Shinies
+	*Goblin
+		on click:log Woop
+		movement:onRight moveLeft fade bounce:0.05
+		frequency:60
+		frequency variation:30
+		icon:https://www.aht.li/3908724/goblin256.png
+		class:bigButton
+		on click:
+			$boost=1
+				//get at least 7, or between 1 and 3 minutes of our bunny production
+				$amount=max(7,random(Pieces:ps*60*1,Pieces:ps*60*3))*$boost
+				toast Le goblin vous donne<//><b>[$amount] Pièces</b>.
+				yield $amount Pieces
+		end
+ 
+ 
+Buildings
+	*TEMPLATE
+		on click:anim glow
+ 
+	*Guerrier|Guerriers
+		name:Guerrier|Guerriers
+		desc:Le mercenaire de base avec une épée<//><b>Effect:</b><.>Rapporte une pièce d'or toutes les 10 secondes.
+		icon:https://www.aht.li/3908716/guerrier.png
+		cost:15 Pieces
+		on tick:yield 0.1 Piece
+		unlocked
+ 
+	*Roublard|Roublards
+		name:Roublard|Roublards
+		desc:Un peu plus malin que les autres, il est fourbe.<//><b>Effect:</b><.>Rapporte une pièce d'or toutes les 10 secondes.
+		icon:https://www.aht.li/3908720/roublard.png
+		cost:100 Pieces
+		on tick:yield 1 Piece
+		req:100 Pieces:earned
+ 
+	*Druide|Druides
+		name:Druide|Druides
+		desc:Il pue un peu les champignons mais les écureuils l'écoutent.<//><b>Effect:</b><.>Rapporte une pièce d'or toutes les 10 secondes.
+		icon:https://www.aht.li/3908713/druide.png
+		cost:1100 Pieces
+		on tick:yield 8 Piece
+		req:1100 Pieces:earned
+ 
+	*Clerc|Clercs
+		name:Clerc|Clercs
+		desc:On sais pas forcement quel dieu il prie mais il soigne donc on pose pas de questions.<//><b>Effect:</b><.>Rapporte une pièce d'or toutes les 10 secondes.
+		icon:https://www.aht.li/3908709/clerc.png
+		cost:12000 Pieces
+		on tick:yield 47 Piece
+		req:12000 Pieces:earned
+ 
+	*Barbare|Barbares
+		name:Barbare|Barbares
+		desc:On dirais juste un guerrier nu mais il frappe fort et refuse de mourir. <//><b>Effect:</b><.>Rapporte une pièce d'or toutes les 10 secondes.
+		icon:https://www.aht.li/3908711/barbare.png
+		cost:130000 Pieces
+		on tick:yield 260 Piece
+		req:130000 Pieces:earned
+ 
+	*Magicien|Magiciens
+		name:Magicien|Magiciens
+		desc:Une longue barbe et un gros bouquin ne font pas toujours un type malin mais celui-là fait de la magie.<//><b>Effect:</b><.>Rapporte une pièce d'or toutes les 10 secondes.
+		icon:https://www.aht.li/3908717/magicien.png
+		cost:1400000 Pieces
+		on tick:yield 1400 Piece
+		req:1400000 Pieces:earned
+ 
+	*Paladin|Paladins
+		name:Paladin|Paladins
+		desc:Il à besoins d'un pense bête pour son serment mais tant qu'il le respecte son marteau frappe très fort. <//><b>Effect:</b><.>Rapporte une pièce d'or toutes les 10 secondes.
+		icon:https://www.aht.li/3908715/paladin.png
+		cost:20000000 Pieces
+		on tick:yield 7800 Piece
+		req:20000000 Pieces:earned
+ 
+	*Occultiste|Occultistes
+		name:Occultiste|Occultistes
+		desc:Parfois il faut lire les petites lignes du contrat, et parfois ont à le droit de lancer des rayons sans conséquences, tout est une question de chance.<//><b>Effect:</b><.>Rapporte une pièce d'or toutes les 10 secondes.
+		icon:https://www.aht.li/3908719/occultiste.png
+		cost:330000000 Pieces
+		on tick:yield 44000 Piece
+		req:330000000 Pieces:earned
+ 
+	*Rodeur|Rodeurs
+		name:Rodeur|Rodeurs
+		desc:Il parle une fois par mois et dors dans la forêt, mais il est toujours la quand un troll attaque.<//><b>Effect:</b><.>Rapporte une pièce d'or toutes les 10 secondes.
+		icon:https://www.aht.li/3908721/rodeur.png
+		cost:5100000000 Pieces
+		on tick:yield 260000 Piece
+		req:5100000000 Pieces:earned
+ 
+	*Ensorceleur|Ensorceleurs
+		name:Ensorceleur|Ensorceleurs
+		desc:Sa magie est très puissante, espérons juste qu'elle soit dirigée vers les ennemis.<//><b>Effect:</b><.>Rapporte une pièce d'or toutes les 10 secondes.
+		icon:https://www.aht.li/3908714/ensorceleur.png
+		cost:75000000000 Pieces
+		on tick:yield 1600000 Piece
+		req:75000000000 Pieces:earned
+ 
+	*Barde|Bardes
+		name:Barde|Bardes
+		desc:La langue plus acérée que son épée, une fois il à tué un gobelin en l'insultant. <//><b>Effect:</b><.>Rapporte une pièce d'or toutes les 10 secondes.
+		icon:https://www.aht.li/3908712/barde.png
+		cost:1000000000000 Pieces
+		on tick:yield 10000000 Piece
+		req:1000000000000 Pieces:earned
+ 
+	*Moine|Moines
+		name:Moine|Moines
+		desc:Il s'est entrainé pendant des dizaines d'années, maintenant il peut mettre deux coups de poings en même temps.<//><b>Effect:</b><.>Rapporte une pièce d'or toutes les 10 secondes.
+		icon:https://www.aht.li/3908718/moine.png
+		cost:14000000000000 Pieces
+		on tick:yield 65000000 Piece
+		req:14000000000000 Pieces:earned
+ 
+	*Artificier|Artificers
+		name:Artificier|Artificers
+		desc:Le mercenaire légendaire. Nul ne sais si il existe réellement ou si c'est un rêve enfiévré. <//><b>Effect:</b><.>Rapporte une pièce d'or toutes les 10 secondes.
+		icon:https://www.aht.li/3908710/artificier.png
+		cost:170000000000000 Pieces
+		on tick:yield 430000000 Piece
+		req:170000000000000 Pieces:earned
+
+Upgrades
+	*TEMPLATE
+		on click:anim glow
+	
+	*Cuivre
+		name:Pièce de cuivre
+		desc:La plus nulle des pièces mais ça paie un bol de gruau.<//><b>Effect:</b><.>+1 Pièce/click
+		icon:https://www.aht.li/3908705/copper-coin48.png
+		cost:100 Pieces
+		passive:increase Piece yield of Boutonpiece by 1
+		req:10 Pieces:earned
